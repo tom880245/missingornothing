@@ -2,4 +2,9 @@
 transform(df,:A=> ByRow(x->isnothing(x) ? missing : x) ; renamecols=false)
 
 replace!(df.A,nothing=>missing)
+map(x->replace!(df[!,Symbol(x)],nothing=>missing),names(df))
+
+
+#allow DataType include missing
+allowmissing!(df, :)
 
