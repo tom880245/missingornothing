@@ -1,0 +1,5 @@
+#raplace nothing to missing
+transform(df,:A=> ByRow(x->isnothing(x) ? missing : x) ; renamecols=false)
+
+replace!(df.A,nothing=>missing)
+
